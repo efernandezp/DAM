@@ -10,11 +10,12 @@
  - TWITTER: [@erickfdez28](https://twitter.com/erickfdez28)
  
 
-** LENGUAJES DE PROGRAMACION **
+**LENGUAJES DE PROGRAMACION**
  - C ++
  - C#
  - JAVA
  
 
-# CASO DE EXITO
+# CASO DE EXITO 
+pendiente para la siguiente clase
  
