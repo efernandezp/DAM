@@ -17,5 +17,7 @@
  
 
 # CASO DE EXITO 
-pendiente para la siguiente clase
- 
+
+**PERISCOPE**
+
+Hoy en día las personas y marcas quieren compartir sus historias y momentos todo el tiempo y esta app les permite hacerlo de forma divertida y en tiempo real. La aplicación es propiedad de Twitter y muchos consideran que es el futuro de la televisión porque es una forma más actualizada de vivir o seguir los acontecimientos de marcas, instituciones o del pais de una forma real y rápida.
