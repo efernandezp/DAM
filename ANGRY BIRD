@@ -1,0 +1,55 @@
+# MI PRIMER DIBUJO UTILIZANDO KHAN ACADEMY
+### ANGRY BIRD
+
+**CODIGO**
+frameRate(5);
+
+
+//variable draw define una funcion que junto con el frameRate(tiempo animacion del contorno) y agregando la opcion random al strokeWeight() nos ayuda a animar el contorno.
+
+var draw = function() {
+    
+    
+//fondo del dibujo
+background(230, 230, 101);
+    
+//cuerpo del angry bird
+fill(179, 23, 23);
+stroke(15, 15, 15);
+strokeWeight(random(18));
+ellipse(195,200,300,300);
+
+//mejillas del angry bird derecha
+stroke(130, 12, 22);
+strokeWeight(80);
+point(250,240);
+//mejillas del angry bird izquierda
+stroke(130, 12, 22);
+strokeWeight(80);
+point(150,240);
+
+//ojos del angry bird
+fill(247, 242, 247);
+stroke(10, 10, 10);
+strokeWeight(5);
+ellipse(160,200,70,70);//izquierdo
+ellipse(230,200,70,70);//derecho
+//cejas del angry bird
+fill(8, 7, 8);
+quad(284, 121, 274, 159, 192, 188, 192, 157);
+quad(98, 127, 190, 157, 191, 187, 110, 168);
+//partde negra del angry bird
+ellipse(162,192,30,30);
+ellipse(225,192,30,30);
+//pico del angy bird
+fill(232, 218, 65);
+triangle(163, 264, 200, 317, 238, 263);
+triangle(148, 270, 195, 202, 255, 269);
+//parte blanca del ojo
+fill(250, 250, 250);
+noStroke();
+ellipse(150,192,15,15);
+ellipse(214,192,15,15);
+
+};
+
