@@ -1,0 +1,20 @@
+var av = new Avatar(7);
+var mov = [10,20,40,60,80, -5, -10, -30];
+var i = 0;
+var pausa = false;
+frameRate(4);
+var draw = function (){
+    background (245, 245, 245);
+    i = (i+1) % mov.length;
+    av.draw(mouseX,mouseY);
+    //av.rotate(10);
+    av.rotate(1,mov[i]);
+    av.rotate(2,mov[i]);
+};
+
+var mouseClicked = function{
+    pausa = !pausa;
+    if (pausa)
+    noLoop();
+    
+}
