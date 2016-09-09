@@ -1,0 +1,22 @@
+var av = new Avatar(5);
+av.scale(0.75);
+var mov = [10,30,30,10,0,-10,-30,-30,-10];
+var i = 0;
+var pausa = false;
+frameRate(5);
+var draw = function() {
+    background(240, 232, 240);
+    i = (i+1) % mov.length;
+    av.rotate(6,-mov[i]);
+    av.rotate(7,mov[i]);
+    av.draw(mouseX,mouseY);
+};
+
+var mouseClicked = function() {
+    pausa = !pausa;
+    if (pausa) {
+        noLoop();
+    } else {
+        loop();   
+    }
+};
