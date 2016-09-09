@@ -18,3 +18,26 @@ var mouseClicked = function{
     noLoop();
     
 }
+************************************************************
+var av = new Avatar(1);
+var pausa = false;
+frameRate(30);
+av.setLimit(1,-90,90);
+av.setNext(2,5);
+   
+var draw = function (){
+   background (255, 255, 255);
+    av.draw(mouseX,mouseY);
+    av.rotate(1,3);
+    av.next(2);
+    
+  
+};
+var mouseClicked = function() {
+    pausa = !pausa;
+    if (pausa) {
+        noLoop();
+    } else {
+        loop();   
+    }
+};
