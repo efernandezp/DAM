@@ -1,0 +1,40 @@
+var av = new Avatar(5);
+av.scale(0.75);
+var pausa = false;
+av.setLimit(6,-90,0);
+av.setAngle(6,1);
+av.setAngle(7,75);
+var rep = 0;
+var bola = {r:30, col:color(224, 85, 168), y:50, rep:0, sube:false};
+var draw = function() {
+    background(240, 232, 240);
+    if (bola.sube) {
+        if (--bola.y<90) {
+            bola.sube=false;
+        }
+    } else {
+        if (++bola.y>180) {
+            bola.sube=true;
+        }
+    }
+    fill(bola.col);
+    ellipse(200,bola.y,bola.r,bola.r);
+    var pos = av.getAngle(6);
+    av.next(6);
+    if (pos>=0) {
+        if (++rep > 2) {
+            av.setAngle(7,0);
+            noLoop();
+        }
+    }
+    av.draw(mouseX,mouseY);
+};
+
+var mouseClicked = function() {
+    pausa = !pausa;
+    if (pausa) {
+        noLoop();
+    } else {
+        loop();   
+    }
+};
