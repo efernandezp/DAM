@@ -1,0 +1,86 @@
+var bola = {
+    r:30, col:color(224, 85, 168), 
+    x:190, y:100, 
+    rep:2, suelo: false, sube:false
+};
+var pantera = {
+    av: new Avatar(5), 
+    x:150, y:180,
+    go: true,
+    rep:0,
+    pie:75,
+    pat: true
+};
+var animaBola = function() {
+    if (bola.sube) { // subiendo!
+        bola.y = bola.y - 2;
+        if (bola.y<90) {
+            bola.sube=false;
+        }
+    } else { // bajando!
+    bola.y = bola.y + 2;
+        if (bola.y>180) {
+            bola.sube=true;
+        }
+    }
+    fill(bola.col);
+    ellipse(bola.x,bola.y,bola.r,bola.r);
+};
+var animaBola2 = function(){
+    if(bola.y < 215 && bola.x <= 230){
+        bola.y = bola.y+2;
+        bola.x = bola.x + 0.5;
+        fill(bola.col);
+        ellipse(bola.x,bola.y,bola.r,bola.r);
+    }else{
+        bola.suelo = true;
+    }
+    if(bola.x < 400 && bola.suelo){
+        bola.x = bola.x + 3.5;
+        bola.y = bola.y - 3.5;
+        fill(bola.col);
+        ellipse(bola.x,bola.y,bola.r,bola.r);
+    }
+};
+
+pantera.av.scale(0.75);
+var pausa = false;
+pantera.av.setLimit(6,-90,0);
+pantera.av.setAngle(6,1);
+pantera.av.setAngle(7,75);
+var draw = function() {
+    background(240, 232, 240);
+    if (pantera.go) {
+        pantera.av.next(6);
+        pantera.av.next(6);
+        var pos = pantera.av.getAngle(6);
+        if (pos === 0) {
+            if (++pantera.rep > 2) {
+                pantera.go = false;
+            }
+        }
+        animaBola();
+    }else{
+        if(pantera.pie > 0){
+            pantera.av.setAngle(7, pantera.pie--);
+        }
+        animaBola2();
+        if (pantera.pat) {
+            pantera.av.next(6);
+            var pos = pantera.av.getAngle(6);
+            if(pos >= 0){
+                pantera.pat = false;
+            }
+        }
+    }
+    pantera.av.draw(pantera.x,pantera.y);
+};
+
+var mouseClicked = function() {
+    pausa = !pausa;
+    if (pausa) {
+        noLoop();
+    } else {
+        loop();   
+    }
+};
