@@ -1,0 +1,56 @@
+frameRate(10);
+
+var CircleSize = 80;
+var figura = 1;
+
+var dibujar = function(){
+    fill(random(255), random(255), random(255), random(255));
+    if(mouseX >= 200){
+        stroke(255, 0, 0, 100);
+    }else{
+        stroke(0, 0, 255, 100);
+    }
+    switch(figura){
+        case 1:
+            ellipse(mouseX, mouseY, CircleSize, CircleSize);
+            break;
+        case 2:
+            rect(mouseX - (CircleSize / 2), mouseY - (CircleSize / 2), CircleSize, CircleSize);
+            break;
+        case 3:
+            ellipse(mouseX, mouseY, (CircleSize / 1.5), CircleSize);
+            break;
+        case 4:
+            rect(mouseX - (CircleSize / 2), mouseY - (CircleSize / 2), (CircleSize * 1.5), CircleSize);
+            break;
+    }
+};
+
+var draw = function() {
+    strokeWeight(2);
+    
+    mouseMoved = function() {
+        dibujar();
+    };
+    
+    keyPressed = function() {
+        if (keyCode === UP){
+            CircleSize += 10;
+            dibujar();
+        }
+        if (keyCode === DOWN){
+            CircleSize -= 10;
+            dibujar();
+        }
+    };
+
+    mouseClicked = function() {
+        background(255);
+        CircleSize = 80;
+        if(figura === 4){
+            figura = 1;
+        }else{
+            figura++;
+        }
+    };
+};
