@@ -1,0 +1,57 @@
+
+background(20, 13, 13);
+var CircleSize = 80;
+var figura = 1;
+fill(random(255), random(255), random(255), random(255));
+
+var dibujar = function(){
+    
+    switch(figura){
+        case 1:
+            ellipse(mouseX, mouseY, CircleSize, CircleSize);
+            break;
+        case 2:
+            rect(mouseX - (CircleSize / 2), mouseY - (CircleSize / 2), CircleSize, CircleSize);
+            break;
+        case 3:
+            ellipse(mouseX, mouseY, (CircleSize / 1.8), CircleSize);
+            break;
+        case 4:
+            rect(mouseX - (CircleSize / 2), mouseY - (CircleSize / 2), (CircleSize * 1.5), CircleSize);
+            break;
+    }
+};
+
+var draw = function() {
+    stroke(255, 255, 255, 255);
+    strokeWeight(2);
+    
+    mouseMoved = function() {
+        dibujar();
+    };
+    
+    keyPressed = function() {
+        if (keyCode === UP){
+            CircleSize += 10;
+            dibujar();
+        }
+        if (keyCode === DOWN){
+            CircleSize -= 10;
+            dibujar();
+        }
+        if(keyCode === LEFT || keyCode === RIGHT){
+            fill(random(255), random(255), random(255), random(255));
+            dibujar();
+        }
+    };
+    mouseClicked = function() {
+        background(20, 13, 13);
+        CircleSize = 80;
+        if(figura === 4){
+            figura = 1;
+        }else{
+            figura++;
+        }
+    };
+    
+};
